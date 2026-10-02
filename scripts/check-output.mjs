@@ -2,6 +2,10 @@ import { readFileSync } from "node:fs";
 import assert from "node:assert/strict";
 
 const html = readFileSync("_site/index.html", "utf8");
+assert.ok(html.includes('webawesome@3.14.0/styles/themes/default.css'), "Web Awesome theme missing");
+assert.ok(html.includes('webawesome@3.14.0/webawesome.loader.js'), "Web Awesome loader missing");
+assert.match(html, /<wa-callout[^>]*class="notice"[^>]*>.*<\/wa-callout>/s, "home callout missing");
+assert.ok(html.includes('<wa-tag variant="neutral" appearance="outlined" size="s">非公式</wa-tag>'), "header tag missing");
 const routes = [
   "/start/",
   "/setup/",

@@ -17,6 +17,8 @@ bun run start
 bun run check
 ```
 
+画面の案内には[Web Awesome](https://webawesome.com/docs) 3.14.0のTagとCalloutを使っています。公式CDNの固定バージョンを読み込み、読み込めない場合も本文とリンクは表示されます。Eleventy / Build Awesomeとは別のUIコンポーネントライブラリです。
+
 ## 公開
 
 公開先は [Cloudflare Pages](https://unofficial-11tyjp.pages.dev/) の `unofficial-11tyjp` プロジェクトです。現時点ではGit連携を設定していません。`main` へのpushだけでは公開されず、ローカルでチェックした `_site/` をWranglerで手動デプロイします。デプロイ時は対象プロジェクトと最新コミットを確認してください。
