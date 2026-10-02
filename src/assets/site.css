@@ -1,0 +1,18 @@
+* { box-sizing: border-box; }
+:root { color-scheme: light; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #20262e; background: #f8fafc; line-height: 1.7; }
+body { margin: 0; }
+a { color: #075985; text-underline-offset: .18em; }
+a:focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
+.site-header, .site-footer { padding: 1rem max(1rem, calc((100% - 52rem) / 2)); background: #102a43; color: #fff; }
+.site-header { display: flex; justify-content: space-between; gap: 1rem; }
+.site-header a, .site-footer a { color: #fff; }
+.content { width: min(100% - 2rem, 52rem); margin: 3rem auto; }
+.hero { padding: 2rem; border-radius: 1rem; background: #e0f2fe; }
+h1 { line-height: 1.25; }
+.lead { font-size: 1.2rem; }
+.notice { padding: 1rem; border-left: .3rem solid #0369a1; background: #fff; }
+.guide-list { padding: 0; list-style: none; }
+.guide-list li { padding: 1rem 0; border-bottom: 1px solid #cbd5e1; }
+.skip-link { position: absolute; left: -9999px; }
+.skip-link:focus { left: 1rem; top: 1rem; z-index: 2; padding: .5rem 1rem; background: white; }
+@media (max-width: 40rem) { .content { margin: 1.25rem auto; } .hero { padding: 1.25rem; } }

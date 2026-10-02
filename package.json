@@ -1,0 +1,14 @@
+{
+  "name": "unofficial-11tyjp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "check": "bun run build && bun scripts/check-output.mjs"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6"
+  }
+}

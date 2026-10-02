@@ -1,0 +1,25 @@
+---
+title: 日本語ガイド
+description: Eleventy（Build Awesome）の非公式な日本語ガイド。基本機能からMarkdown執筆、ビルド、公開までを扱います。
+layout: base.njk
+permalink: /
+---
+<section class="hero">
+  <p class="eyebrow">Unofficial community guide</p>
+  <h1>Eleventy / Build Awesome<br>日本語ガイド</h1>
+  <p class="lead">HTMLとMarkdownから、軽くて長く使えるウェブサイトを作るための日本語リファレンスです。</p>
+  <p class="notice"><strong>非公式ガイド</strong>です。公式プロジェクトの現行情報を確認しながら、安定版とBuild Awesome v4の情報を区別して更新します。</p>
+</section>
+<section aria-labelledby="guide-index">
+  <h2 id="guide-index">ガイド</h2>
+  <ul class="guide-list">
+  {%- for section in collections.sections %}
+    <li><a href="{{ section.url }}">{{ section.data.title }}</a><p>{{ section.data.summary }}</p></li>
+  {%- endfor %}
+  </ul>
+</section>
+<section>
+  <h2>このガイドの実践方針</h2>
+  <p>CMSを使わず、Markdownで記事を編集し、ローカルでプレビュー・ビルドして公開する流れを扱います。Cloudflare PagesとXServerなどのレンタルサーバーへの配置方法を、手順を分けて説明します。</p>
+  <p>記事本文は人が書き、AIはサイトの構築・修正や校正の補助として使う想定です。公開前に内容・リンク・差分を人が確認します。</p>
+</section>
