@@ -1,16 +1,16 @@
 ---
 title: WebCの使い方
-summary: HTMLに近い記法で部品を作る場合の導入手順です。
+summary: WebCプラグインを入れ、最初のページを作ります。
 layout: base.njk
 permalink: /templates/webc/
 ---
 # WebCの使い方
 
-WebCは、HTMLの書き方を土台に、繰り返し使う部品をまとめる仕組みです。記事本文はMarkdownのままにし、ページの一部で同じ見た目を使い回したくなったときに検討してください。使わないサイトには不要です。
+WebCでは、HTMLに近い書き方で繰り返し使う部品を作れます。本文はMarkdownのままで、同じ案内枠やカードを何度も書くようになったらWebCを使えます。
 
 ## v3ではプラグインを入れる
 
-Eleventy 3.1.6では[公式プラグイン](https://www.11ty.dev/docs/languages/webc/)を導入します。Node.js/npmなら `npm install --save-dev @11ty/eleventy-plugin-webc`、Bunなら `bun add -d @11ty/eleventy-plugin-webc`。既存の `eleventy.config.mjs` に次の2行を加えます。
+Eleventy 3.1.6でWebCを使うには[公式プラグイン](https://www.11ty.dev/docs/languages/webc/)が必要です。npmなら `npm install --save-dev @11ty/eleventy-plugin-webc`、Bunなら `bun add -d @11ty/eleventy-plugin-webc` で入れます。次に `eleventy.config.mjs` へ追加します。
 
 ```js
 import webcPlugin from "@11ty/eleventy-plugin-webc";
@@ -18,11 +18,11 @@ import webcPlugin from "@11ty/eleventy-plugin-webc";
 // eleventyConfig.addPlugin(webcPlugin);
 ```
 
-このリポジトリの設定関数なら `eleventyConfig.addPassthroughCopy(...)` の近くに `eleventyConfig.addPlugin(webcPlugin);` を置きます。インストールしただけでは `.webc` のビルドは始まりません。
+このサイトの設定なら、`eleventyConfig.addPassthroughCopy(...)` の近くに `eleventyConfig.addPlugin(webcPlugin);` を置きます。パッケージを入れるだけでは `.webc` は処理されません。
 
 ## まずはWebCページを1つ作る
 
-入力ディレクトリに `hello.webc` を作ります。
+入力ディレクトリに `hello.webc` を作ります。このサイトと同じ構成なら `src/hello.webc` です。
 
 ```html
 <!doctype html>
@@ -32,10 +32,10 @@ import webcPlugin from "@11ty/eleventy-plugin-webc";
 </html>
 ```
 
-`bun run build` または `npm run build` で出力を確認します。このサイトの設定なら `src/hello.webc` が入力で、`_site/hello/index.html` が生成されます。記事一覧やレイアウトと組み合わせる前に、まずこの1ページが出るか確かめましょう。
+`bun run build` または `npm run build` を実行します。このサイトの設定では `_site/hello/index.html` が出力されます。まずブラウザーでこの1ページを開いてみてください。
 
-## 部品に分けるのは繰り返しができてから
+## 同じHTMLが増えたら部品にする
 
-同じ構造を複数箇所で使うならコンポーネント化を検討します。部品の登録場所、データの渡し方、CSS・JavaScriptのまとめ方にはWebC固有の約束があります。[公式のコンポーネント解説](https://www.11ty.dev/docs/languages/webc/)を確認し、出力されたHTMLを見ながら一つずつ導入してください。Nunjucksのレイアウトが足りているなら、無理に置き換える必要はありません。
+部品の登録方法やデータの渡し方は[公式のWebC解説](https://www.11ty.dev/docs/languages/webc/)を参照してください。共通のヘッダーやフッターだけなら、Nunjucksのレイアウトで間に合います。
 
-Build Awesome v4でもWebCは別途プラグインを案内しています。ただしv4はプレリリースのため、v3の手順と混ぜず[v4のWebC文書](https://build.awesome.me/docs/languages/webc/)を確認してください。
+Build Awesome v4でもWebCにはプラグインを使います。v4を試すときは、v3向けの手順ではなく[v4のWebC文書](https://build.awesome.me/docs/languages/webc/)を参照してください。

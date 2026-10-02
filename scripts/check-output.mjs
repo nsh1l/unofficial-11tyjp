@@ -19,7 +19,7 @@ const routes = [
 for (const marker of [
   "Eleventy / Build Awesome",
   "非公式",
-  "CMSを使わず",
+  "CMSは使いません。",
   "Cloudflare Pages",
   "XServer",
   "本文 CC BY 4.0",

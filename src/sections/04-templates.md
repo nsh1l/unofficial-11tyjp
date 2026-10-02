@@ -1,6 +1,6 @@
 ---
 title: テンプレート
-summary: MarkdownとNunjucksの使い分け、WebCの導入を説明します。
+summary: Markdownで本文を書き、Nunjucksで共通部分を作ります。
 order: 4
 tags: [section]
 layout: base.njk
@@ -8,7 +8,7 @@ permalink: /templates/
 ---
 # テンプレート
 
-記事本文はMarkdown、ページの枠はNunjucksから始めると分かりやすいでしょう。Eleventyはほかにも複数の[テンプレート言語](https://www.11ty.dev/docs/languages/)を扱えますが、最初から使い分ける必要はありません。
+記事はMarkdownで書き、共通のヘッダーやフッターはNunjucksに置きます。この二つで始めれば十分です。ほかの[テンプレート言語](https://www.11ty.dev/docs/languages/)も、必要になってから選べます。
 
 ## Markdownで本文を書く
 
@@ -24,7 +24,7 @@ layout: base.njk
 新しい記事を公開しました。
 ```
 
-この原稿をビルドするとHTMLができます。Markdownの記法はHTMLのすべてを表すものではありません。表現を増やす前に、まず文章と見出しの構造が読めるか確認してください。[Markdownの公式説明](https://www.11ty.dev/docs/languages/markdown/)。
+ビルドすると、このMarkdownからHTMLができます。書式の詳しい説明は[Markdownの公式ページ](https://www.11ty.dev/docs/languages/markdown/)にあります。
 
 ## Nunjucksで共通部分をまとめる
 
@@ -38,11 +38,11 @@ layout: base.njk
 </html>
 ```
 
-原稿の中身を直すときはMarkdown、サイト全体の枠を直すときはレイアウト。分担がはっきりしていれば、記事を書く人がテンプレートに触る機会も減ります。[Nunjucksの公式説明](https://www.11ty.dev/docs/languages/nunjucks/)。
+記事を直すときはMarkdown、全ページ共通の部分を直すときはレイアウトを編集します。[Nunjucksの公式説明](https://www.11ty.dev/docs/languages/nunjucks/)も参照してください。
 
 ## WebCを使いたいとき
 
-WebCはHTMLに近い形で部品を組み合わせる仕組みです。例えば、同じ見た目のカードを複数のページで使いたい場合に向いています。ただし、**Eleventy v3の本体だけでは `.webc` は処理できません**。公式プラグインを追加し、設定に登録します。
+複数ページで同じカードや案内枠を使うなら、WebCで部品にする方法もあります。**Eleventy v3の本体だけでは `.webc` は処理できない**ので、公式プラグインを入れて設定に登録します。
 
 ```sh
 # Node.js＋npm
@@ -58,4 +58,4 @@ export default function (eleventyConfig) {
 }
 ```
 
-設定済みのプロジェクトなら、新しい設定ファイルを作る代わりに既存の `eleventy.config.mjs` へ `import` と `addPlugin` を追加します。詳しくは[WebCの使い方](/templates/webc/)に分けました。このガイド本体はWebCを必須にしていません。
+すでに `eleventy.config.mjs` があるなら、ファイルを増やさず、そこへ `import` と `addPlugin` を追加します。続きは[WebCの使い方](/templates/webc/)へ。このガイド自体はWebCを使わなくても読めます。
