@@ -4,9 +4,29 @@ body { margin: 0; }
 a { color: #075985; text-underline-offset: .18em; }
 a:focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
 .site-header, .site-footer { padding: 1rem max(1rem, calc((100% - 52rem) / 2)); background: #102a43; color: #fff; }
-.site-header { display: flex; justify-content: space-between; gap: 1rem; }
+.site-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.site-header a { text-wrap: balance; }
+.site-header span { white-space: nowrap; }
 .site-header a, .site-footer a { color: #fff; }
 .content { width: min(100% - 2rem, 52rem); margin: 3rem auto; }
+.doc-shell { width: min(100% - 2rem, 76rem); margin: 2.5rem auto; display: grid; grid-template-columns: 15rem minmax(0, 1fr); align-items: start; gap: 3rem; }
+.doc-shell .content { min-width: 0; width: 100%; max-width: 52rem; margin: 0; }
+.sidebar { position: sticky; top: 1rem; max-height: calc(100vh - 2rem); overflow-y: auto; border-top: 1px solid #cbd5e1; padding-top: .75rem; }
+.sidebar h2 { margin: 0 0 .4rem; font-size: 1rem; }
+.sidebar ul, .breadcrumbs ol { list-style: none; padding: 0; margin: 0; }
+.sidebar li a { display: block; padding: .35rem .5rem; border-radius: .25rem; line-height: 1.4; }
+.sidebar li.subitem a { padding-left: 1.5rem; }
+.sidebar a[aria-current="page"] { background: #e0f2fe; color: #103b53; font-weight: 700; text-decoration: none; }
+.breadcrumbs { margin-bottom: 1.75rem; color: #475569; font-size: .9rem; }
+.breadcrumbs ol { display: flex; flex-wrap: wrap; gap: .4rem; }
+.breadcrumbs li + li::before { content: "/"; margin-right: .4rem; color: #64748b; }
+.breadcrumbs li[aria-current="page"] { font-weight: 600; color: #20262e; }
+@media (max-width: 50rem) {
+  .doc-shell { display: block; margin: 1.25rem auto; }
+  .sidebar { position: static; max-height: none; overflow: visible; margin-bottom: 2rem; }
+  .sidebar ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: .4rem; }
+  .sidebar li.subitem a { padding-left: .5rem; }
+}
 .hero { padding: 2rem; border-radius: 1rem; background: #e0f2fe; }
 h1 { line-height: 1.25; }
 .lead { font-size: 1.2rem; }
