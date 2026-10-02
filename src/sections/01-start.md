@@ -1,6 +1,6 @@
 ---
 title: はじめに
-summary: Eleventyで何ができるか、どの版を使うか。
+summary: Eleventyで何ができるか、このガイドの使い方。
 order: 1
 tags: [section]
 layout: base.njk
@@ -12,11 +12,7 @@ Eleventyは、MarkdownやHTMLの原稿からサイトを作るツールです。
 
 このサイトは**非公式の日本語ガイド**です。手元で試せる例を中心に書いています。細かな仕様は[公式ドキュメント](https://www.11ty.dev/docs/)で確認してください。
 
-## Build Awesomeとの関係
-
-[公式発表](https://www.11ty.dev/blog/build-awesome/)では、次の大きな版からBuild Awesomeという名前になると案内しています。別製品への乗り換えではありませんが、v4の説明をそのままv3のサイトに当てはめることはできません。
-
-このガイドのコード例は、特記がなければ**Eleventy 3.1.6**向けです（確認日：2026年10月）。[Build Awesome v4の文書](https://build.awesome.me/docs/)は開発中の版を扱っています。試す場合は[Build Awesome v4を試す前に](/v4/)を読んでください。パッケージ名や手順は正式リリースまでに変わる可能性があります。
+このガイドのコード例は、特記がなければ**Eleventy 3.1.6**向けです（確認日：2026年10月）。
 
 ## 読み始める場所
 

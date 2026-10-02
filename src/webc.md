@@ -37,5 +37,3 @@ import webcPlugin from "@11ty/eleventy-plugin-webc";
 ## 同じHTMLが増えたら部品にする
 
 部品の登録方法やデータの渡し方は[公式のWebC解説](https://www.11ty.dev/docs/languages/webc/)を参照してください。共通のヘッダーやフッターだけなら、Nunjucksのレイアウトで間に合います。
-
-Build Awesome v4でもWebCにはプラグインを使います。v4を試すときは、v3向けの手順ではなく[v4のWebC文書](https://build.awesome.me/docs/languages/webc/)を参照してください。

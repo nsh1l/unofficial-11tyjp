@@ -1,6 +1,6 @@
-# Eleventy / Build Awesome 日本語ガイド
+# Eleventy v3 日本語ガイド
 
-Eleventy / Build Awesomeを日本語で学ぶための非公式コミュニティガイドです。
+Eleventy v3を日本語で学ぶための非公式ガイドです。Build Awesome v4との違いは[比較ページ](https://unofficial-11tyjp.pages.dev/v4/)にまとめています。
 
 ## 開発
 
@@ -17,7 +17,7 @@ bun run start
 bun run check
 ```
 
-画面の案内には[Web Awesome](https://webawesome.com/docs) 3.14.0のTagとCalloutを使っています。公式CDNの固定バージョンを読み込み、読み込めない場合も本文とリンクは表示されます。Eleventy / Build Awesomeとは別のUIコンポーネントライブラリです。
+画面の案内には[Web Awesome](https://webawesome.com/docs) 3.14.0のTagとCalloutを使っています。公式CDNの固定バージョンを読み込み、読み込めない場合も本文とリンクは表示されます。Eleventyとは別のUIコンポーネントライブラリです。
 
 ## 公開
 

@@ -17,7 +17,7 @@ const routes = [
   "/troubleshooting/",
 ];
 for (const marker of [
-  "Eleventy / Build Awesome",
+  "Eleventy v3 日本語ガイド",
   "非公式",
   "CMSは使いません。",
   "Cloudflare Pages",
@@ -40,6 +40,14 @@ for (const route of [...routes, "/templates/webc/", "/v4/"]) {
   for (const section of routes) {
     assert.ok(article.includes(`href="${section}"`), `sidebar lacks ${section} on ${route}`);
   }
+  if (route !== "/v4/") {
+    const main = article.match(/<main id="main" class="content">([\s\S]*?)<\/main>/)?.[1];
+    assert.ok(main && !/Build Awesome|\bv4\b/.test(main), `v4 comparison leaked into v3 article: ${route}`);
+  }
+}
+const comparison = readFileSync("_site/v4/index.html", "utf8");
+for (const marker of ["Eleventy v3とBuild Awesome v4の違い", "@11ty/eleventy", "@awesome.me/buildawesome", "Node.js 18以上", "Node.js 22.15以上", "WebCはどちらもプラグインを使う"]) {
+  assert.ok(comparison.includes(marker), `v4 comparison lacks ${marker}`);
 }
 const webc = readFileSync("_site/templates/webc/index.html", "utf8");
 assert.match(webc, /<li><a href="\/templates\/">テンプレート<\/a><\/li>\s*<li aria-current="page">WebCの使い方<\/li>/);
