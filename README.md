@@ -4,7 +4,7 @@ Eleventy / Build Awesomeを日本語で学ぶための非公式コミュニテ�
 
 ## 開発
 
-このサイト自体はEleventy 3系で構築しています。Node.js/npmとBunの手順を本文で同等に案内する予定です。作業ツリーではBunを使います。
+このサイトはEleventy 3.1.6で構築しています。ガイド本文ではNode.js/npmとBunの手順を並べています。この作業ツリーではBunを使います。
 
 ```sh
 bun install
@@ -16,6 +16,17 @@ bun run start
 ```sh
 bun run check
 ```
+
+## 公開
+
+公開先は [Cloudflare Pages](https://unofficial-11tyjp.pages.dev/) の `unofficial-11tyjp` プロジェクトです。現時点ではGit連携を設定していません。`main` へのpushだけでは公開されず、ローカルでチェックした `_site/` をWranglerで手動デプロイします。デプロイ時は対象プロジェクトと最新コミットを確認してください。
+
+```sh
+bun run check
+wrangler pages deploy _site --project-name unofficial-11tyjp --commit-hash "$(git rev-parse HEAD)"
+```
+
+デプロイ後はPagesの履歴と公開URLの本文・CSSを読み戻します。自動デプロイを導入するまでは、この手順を飛ばさないでください。
 
 ## ライセンス
 
