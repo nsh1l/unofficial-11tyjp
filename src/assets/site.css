@@ -13,6 +13,10 @@ h1 { line-height: 1.25; }
 .notice { padding: 1rem; border-left: .3rem solid #0369a1; background: #fff; }
 .guide-list { padding: 0; list-style: none; }
 .guide-list li { padding: 1rem 0; border-bottom: 1px solid #cbd5e1; }
+pre { overflow-x: auto; padding: 1rem; border-radius: .5rem; background: #e9eef5; line-height: 1.5; }
+code { overflow-wrap: anywhere; }
+pre code { overflow-wrap: normal; }
+.content img { max-width: 100%; height: auto; }
 .skip-link { position: absolute; left: -9999px; }
 .skip-link:focus { left: 1rem; top: 1rem; z-index: 2; padding: .5rem 1rem; background: white; }
 @media (max-width: 40rem) { .content { margin: 1.25rem auto; } .hero { padding: 1.25rem; } }
