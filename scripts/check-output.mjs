@@ -46,6 +46,8 @@ for (const route of [...routes, "/templates/webc/", "/v4/"]) {
   }
 }
 const comparison = readFileSync("_site/v4/index.html", "utf8");
+const concepts = readFileSync("_site/concepts/index.html", "utf8");
+assert.match(concepts, /<figure class="build-flow">[\s\S]*?<ol role="list">[\s\S]*?Eleventyでビルド[\s\S]*?<code>_site\/<\/code>[\s\S]*?<\/ol>[\s\S]*?<\/figure>/, "v3 build diagram missing");
 for (const marker of ["Eleventy v3とBuild Awesome v4の違い", "@11ty/eleventy", "@awesome.me/buildawesome", "Node.js 18以上", "Node.js 22.15以上", "WebCはどちらもプラグインを使う"]) {
   assert.ok(comparison.includes(marker), `v4 comparison lacks ${marker}`);
 }

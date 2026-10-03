@@ -39,6 +39,17 @@ pre { overflow-x: auto; padding: 1rem; border-radius: .5rem; background: #e9eef5
 code { overflow-wrap: anywhere; }
 pre code { overflow-wrap: normal; }
 .content img { max-width: 100%; height: auto; }
+.build-flow { margin: 2rem 0; }
+.build-flow figcaption { margin-bottom: .75rem; font-weight: 700; }
+.build-flow ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
+.build-flow li { position: relative; min-width: 0; padding: .75rem; border: 1px solid #cbd5e1; border-radius: .5rem; background: #e9eef5; }
+.build-flow li:not(:last-child)::after { content: "→"; position: absolute; top: 50%; right: -1.1rem; transform: translateY(-50%); color: #475569; }
+.build-flow strong, .build-flow span { display: block; }
+.build-flow span { margin-top: .25rem; font-size: .9rem; }
+@media (max-width: 70rem) {
+  .build-flow ol { grid-template-columns: 1fr; gap: 1.25rem; }
+  .build-flow li:not(:last-child)::after { content: "↓"; top: auto; right: 50%; bottom: -1.4rem; transform: translateX(50%); }
+}
 .skip-link { position: absolute; left: -9999px; }
 .skip-link:focus { left: 1rem; top: 1rem; z-index: 2; padding: .5rem 1rem; background: white; }
 @media (max-width: 40rem) { .content { margin: 1.25rem auto; } .hero { padding: 1.25rem; } }

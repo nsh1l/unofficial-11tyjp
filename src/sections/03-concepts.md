@@ -10,6 +10,16 @@ permalink: /concepts/
 
 Eleventyは原稿を読み込み、データやレイアウトと組み合わせてHTMLを書き出します。公開するのは元のMarkdownではなく、ビルドでできたファイルです。
 
+<figure class="build-flow">
+  <figcaption>原稿から公開まで</figcaption>
+  <ol role="list">
+    <li><strong>原稿を用意</strong><span>Markdown・Nunjucks・データ</span></li>
+    <li><strong>Eleventyでビルド</strong><span>原稿とレイアウトを組み合わせる</span></li>
+    <li><strong>ファイルを生成</strong><span><code>_site/</code> にHTMLを書き出し、CSSをコピー</span></li>
+    <li><strong>公開先へ配置</strong><span>生成されたファイルを静的に配信</span></li>
+  </ol>
+</figure>
+
 ## テンプレートとレイアウト
 
 `index.md` もEleventyではテンプレートの一種で、1つの原稿から1つのページを作ります。ヘッダーやフッターなど、全ページに共通する部分は**レイアウト**に書きます。原稿の先頭で `layout: base.njk` を指定すると、本文がレイアウトの `content` に入ります。共通部分は一か所で直せます。[レイアウトの公式説明](https://www.11ty.dev/docs/layouts/)。
