@@ -49,6 +49,7 @@ const comparison = readFileSync("_site/v4/index.html", "utf8");
 const concepts = readFileSync("_site/concepts/index.html", "utf8");
 assert.match(concepts, /<figure class="build-flow">[\s\S]*?<ol role="list">[\s\S]*?Eleventyでビルド[\s\S]*?<code>_site\/<\/code>[\s\S]*?<\/ol>[\s\S]*?<\/figure>/, "v3 build diagram missing");
 const configuration = readFileSync("_site/configuration/index.html", "utf8");
+assert.match(configuration, /<h2>コードの読み方<\/h2>[\s\S]*?<h2>設定で変えられること<\/h2>[\s\S]*?<h3>入出力先と対象ファイル<\/h3>[\s\S]*?<h2>設定ファイルの外で指定すること<\/h2>/, "configuration syntax and effects are not separated");
 for (const marker of ["eleventy.config.mjs", "addPassthroughCopy", "markdownTemplateEngine", "templateFormats", "addGlobalData", "addCollection", "addFilter", "addShortcode", "addTransform", "addWatchTarget", "eleventy.before", "フロントマターやデータファイル"]) {
   assert.ok(configuration.includes(marker), `configuration guide lacks ${marker}`);
 }
