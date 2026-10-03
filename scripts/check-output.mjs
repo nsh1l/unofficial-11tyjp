@@ -29,7 +29,7 @@ for (const marker of [
 for (const route of routes) {
   assert.ok(html.includes(`href="${route}"`), `missing section link: ${route}`);
 }
-for (const route of [...routes, "/templates/webc/", "/v4/"]) {
+for (const route of [...routes, "/templates/webc/", "/configuration/api/", "/v4/"]) {
   const article = readFileSync(`_site${route}index.html`, "utf8");
   assert.ok(article.includes("<h1>"), `missing article heading: ${route}`);
   assert.ok(!article.includes("準備中"), `unfinished article: ${route}`);
@@ -49,10 +49,16 @@ const comparison = readFileSync("_site/v4/index.html", "utf8");
 const concepts = readFileSync("_site/concepts/index.html", "utf8");
 assert.match(concepts, /<figure class="build-flow">[\s\S]*?<ol role="list">[\s\S]*?Eleventyでビルド[\s\S]*?<code>_site\/<\/code>[\s\S]*?<\/ol>[\s\S]*?<\/figure>/, "v3 build diagram missing");
 const configuration = readFileSync("_site/configuration/index.html", "utf8");
-assert.match(configuration, /<h2>コードの読み方<\/h2>[\s\S]*?<h2>設定で変えられること<\/h2>[\s\S]*?<h3>入出力先と対象ファイル<\/h3>[\s\S]*?<h2>設定ファイルの外で指定すること<\/h2>/, "configuration syntax and effects are not separated");
-for (const marker of ["eleventy.config.mjs", "addPassthroughCopy", "markdownTemplateEngine", "templateFormats", "addGlobalData", "addCollection", "addFilter", "addShortcode", "addTransform", "addWatchTarget", "eleventy.before", "フロントマターやデータファイル"]) {
+const configApi = readFileSync("_site/configuration/api/index.html", "utf8");
+for (const marker of ["設定値の詳細", "dir.input", "dir.output", "templateFormats", "markdownTemplateEngine", "htmlTemplateEngine", "pathPrefix", 'href="/configuration/api/"']) {
   assert.ok(configuration.includes(marker), `configuration guide lacks ${marker}`);
 }
+const configMain = configuration.match(/<main id="main" class="content">([\s\S]*?)<\/main>/)?.[1];
+assert.ok(configMain && !/addPassthroughCopy|addCollection|addFilter|addTransform/.test(configMain), "function reference leaked into setting details");
+for (const marker of ["設定用の関数", "addPassthroughCopy", "addGlobalData", "addCollection", "addFilter", "addShortcode", "addTransform", "addWatchTarget", "eleventy.before"]) {
+  assert.ok(configApi.includes(marker), `config API guide lacks ${marker}`);
+}
+assert.match(configApi, /<li><a href="\/configuration\/">設定値の詳細<\/a><\/li>\s*<li aria-current="page">設定用の関数<\/li>/, "config API breadcrumb missing");
 for (const marker of ["Eleventy v3とBuild Awesome v4の違い", "@11ty/eleventy", "@awesome.me/buildawesome", "Node.js 18以上", "Node.js 22.15以上", "WebCはどちらもプラグインを使う"]) {
   assert.ok(comparison.includes(marker), `v4 comparison lacks ${marker}`);
 }
@@ -62,4 +68,4 @@ assert.ok(!html.includes('aria-label="パンくずリスト"'), "home should not
 assert.ok(html.includes('href="/v4/"'), "v4 page not linked");
 assert.ok(readFileSync("_site/templates/index.html", "utf8").includes('href="/templates/webc/"'), "WebC guide not linked");
 assert.ok(readFileSync("_site/templates/index.html", "utf8").includes("{{ content | safe }}"), "Nunjucks code example was interpolated");
-console.log(`Generated homepage and ${routes.length + 2} article checks passed.`);
+console.log(`Generated homepage and ${routes.length + 3} article checks passed.`);

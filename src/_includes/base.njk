@@ -25,6 +25,9 @@
               {% if section.url == "/templates/" %}
                 <li class="subitem"><a href="/templates/webc/"{% if page.url == "/templates/webc/" %} aria-current="page"{% endif %}>WebCの使い方</a></li>
               {% endif %}
+              {% if section.url == "/configuration/" %}
+                <li class="subitem"><a href="/configuration/api/"{% if page.url == "/configuration/api/" %} aria-current="page"{% endif %}>設定用の関数</a></li>
+              {% endif %}
             {% endfor %}
             <li><a href="/v4/"{% if page.url == "/v4/" %} aria-current="page"{% endif %}>v3とv4の違い</a></li>
           </ul>
@@ -35,6 +38,7 @@
           <ol>
             <li><a href="/">ホーム</a></li>
             {% if page.url == "/templates/webc/" %}<li><a href="/templates/">テンプレート</a></li>{% endif %}
+            {% if page.url == "/configuration/api/" %}<li><a href="/configuration/">設定値の詳細</a></li>{% endif %}
             <li aria-current="page">{{ title }}</li>
           </ol>
         </nav>
